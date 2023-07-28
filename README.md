@@ -50,8 +50,9 @@ This is a portfolio project designed to help show off basic skills in:
 
 * Header: Simple. Logo in the middle with a 'filter' menu icon on the right.
 * Filter: Will include several popular subject categories the user can use to filter results (sports, latest news, politics, etc).
+* Search Bar: This will live under the header. While searching, a list of possible matches will be displayed below the search bar.
 * Body: By default, it will show the 'Popular' or 'Trending' feeds, loading 10 at a time until the user scrolls down 8 posts, at which point it will load more.
-* Search Bar: This will live under the header. While searching, a list of 
+* Article Cards: Article cards will include the title, base image, and beginning of text with a 'read more...' link in the faded part of the text. The author, date and comment count will be visible between the image and the title. Clicking a card will open the full article with a close button at the top right.
 
 ### Deadline
 
