@@ -1,4 +1,5 @@
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -46,6 +47,13 @@ module.exports = {
 	plugins: [
 		// tells webpack to clean up the old build files
 		new CleanWebpackPlugin(),
+		// tells webpack to copy files from the images and fonts directory to the dist folder
+		new CopyWebpackPlugin({
+			patterns: [
+				{ from: "images", to: "images", context: "./src/common/", toType: 'dir', noErrorOnMissing: true },
+				{ from: "fonts", to: "fonts", context: "./src/common/", toType: 'dir', noErrorOnMissing: true },
+			]
+		}),
 		// tells webpack to inject the script tag into this file and move to dist folder
 		new HtmlWebPackPlugin({
 			template: path.resolve(__dirname, "src", "index.html"),
