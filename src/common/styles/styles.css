@@ -1,9 +1,9 @@
 :root {
 	--theme-light-shade: hsl(210, 6%, 93%); /* Use this color as the background for your dark-on-light designs, or the text color of an inverted design. */
-	--theme-light-accent:hsl(217, 49%, 71%); /* Accent colors can be used to bring attention to design elements by contrasting with the rest of the palette. */
+	--theme-light-accent:hsl(218, 47%, 89%); /* Accent colors can be used to bring attention to design elements by contrasting with the rest of the palette. */
 	--theme-main:		 hsl(202, 71%, 47%); /* This color should be eye-catching but not harsh. It can be liberally applied to your layout as its main identity. */
 	--theme-dark-accent: hsl(300, 74%, 72%); /* Another accent color to consider. Not all colors have to be used - sometimes a simple color scheme works best. */
-	--theme-dark-shades: hsl(210, 52%, 33%); /* Use as the text color for dark-on-light designs, or as the background for inverted designs. */
+	--theme-dark-shade: hsl(210, 52%, 33%); /* Use as the text color for dark-on-light designs, or as the background for inverted designs. */
 }
 
 * {
@@ -11,6 +11,13 @@
 	margin: 0;
 	padding: 0;
 
-	background-color: white;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+main {
+	padding-top: 60px;
+	background-color: var(--theme-light-accent);
 	color: var(--theme-dark-shade);
+	/* min-height: calc(100vh - 50px); */
+	/* min-height: 100vh; */
 }

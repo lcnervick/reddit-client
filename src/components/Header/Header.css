@@ -9,6 +9,9 @@ header {
 	padding: 5px 15px;
 	border-bottom: 1px solid #666;
 	box-shadow: 0px 2px 5px 0px #666;
+	background-color: white;
+	color: var(--theme-dark-shade);
+	z-index:1;
 }
 
 header .logo {

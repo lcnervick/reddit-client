@@ -1,0 +1,44 @@
+footer {
+	height: 50px;
+	padding: 9px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px 15px;
+	background-color: var(--theme-dark-shade);
+	color: var(--theme-light-shade);
+}
+
+footer #backToTop {
+	background-color: var(--theme-dark-shade);
+	text-align: center;
+	position: sticky;
+	bottom: 20px;
+	right: 20px;
+	width:80px;
+	height: 40px;
+	border-radius: 20px;
+	cursor: pointer;
+}
+
+footer #backToTop .toTopArrow {
+	width: 16px;
+	height: 16px;
+	margin: 0 auto;
+	border-top: 3px solid var(--theme-light-shade);
+	border-left: 3px solid var(--theme-light-shade);
+	transform: rotate(45deg);
+	position: absolute;
+	bottom: 1.25em;
+	top: 8px;
+    left: calc(50% - 8px);
+}
+
+footer #backToTop .toTopText {
+	position: absolute;
+	bottom: 4px;
+	width: 100%;
+	font-size: 0.75rem;
+	text-transform: capitalize;
+	white-space:nowrap;
+}
