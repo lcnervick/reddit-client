@@ -1,32 +1,39 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { normalizeListName } from "../../common/utilities/helperFuncs";
+import data from '../../common/store/mock.topics.json';
 
 // MOCK categories
-const categories = {
-	'sports': {
-		name: 'sports',
-		selected: false
-	}
-};
+const topics = {};
+data.forEach(item => {
+	Object.keys(item).forEach(name => {
+		topics[name] = {
+			name: normalizeListName(name),
+			link: item[name],
+			selected: false
+		}
+	})
+});
+console.log("Topics", topics)
 
 const filtersSlice = createSlice({
 	name: "filters",
 	initialState: {
 		filters: {
-			categories: categories
+			topics: topics
 		}
 	},
 	reducers: {
 		selectFilter: (state, action) => {
-			// payload = {category: 'sports'}
-			state.filters.categories[action.payload.category].selected = true;
+			// payload = {topic: 'sports'}
+			state.filters.topics[action.payload.topic].selected = true;
 		},
 		deSelectFilter: (state, action) => {
-			// payload = {category: 'sports'}
-			state.filters.categories[action.payload.category].selected = false;
+			// payload = {topic: 'sports'}
+			state.filters.topics[action.payload.topic].selected = false;
 		},
 		toggleFilter: (state, action) => {
-			// payload = {category: 'sports'}
-			state.filters.categories[action.payload.category].selected = !state.filters.categories[action.payload.category].selected;
+			// payload = {topic: 'sports'}
+			state.filters.topics[action.payload.topic].selected = !state.filters.topics[action.payload.topic].selected;
 		}
 	}
 });

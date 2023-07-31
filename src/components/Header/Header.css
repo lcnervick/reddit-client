@@ -16,6 +16,7 @@ header .logo {
 	max-width: 60%;
 }
 header .logo img {
+	max-height: 100%;
 	width: 100%;
 	position: relative;
 	top: 50%;
@@ -23,12 +24,13 @@ header .logo img {
 	transform: translate(-50%, -50%);
 }
 
-header .filter-button {
+header .filter-button, header .future-icon {
 	height: 90%;
+	min-width: 10%;
 	cursor: pointer;
+	text-align: right;
 }
 
 header .filter-button img {
-	max-height: 100%;
-	max-width: 100%;
+	max-height: 85%;
 }
