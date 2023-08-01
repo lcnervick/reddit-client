@@ -48,3 +48,25 @@
 .articleInfo .articleAuthor span {
 	white-space: nowrap;
 }
+
+
+
+.articleFooter {
+	padding: 1rem 1rem 0 1rem;
+	display: flex;
+	justify-content: space-between;
+}
+.articleComments, .articleVotes {
+	display: flex;
+	gap: 0.5rem;
+    justify-content: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    padding: 0.5rem 1rem;
+    background-color: var(--theme-main);
+    color: var(--theme-light-shade);
+    border-radius: 5px;
+}
+.articleFooter svg {
+	height: 20px;
+}

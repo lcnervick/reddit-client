@@ -39,12 +39,13 @@ const getRelativeTime = (previous) => {
 export const parseRedditArticleResponse = (articles) => {
 	const parsedArticles = [];
 	articles.forEach(article => {
-		const { author, created_utc, downs, id, name, num_comments, permalink, score, selftext, subreddit, subreddit_name_prefixed, title, url_overridden_by_dest, ups } = article.data;
+		const { author, created_utc, downs, id, name, num_comments, permalink, preview, score, selftext, subreddit, subreddit_name_prefixed, title, url_overridden_by_dest, ups } = article.data;
 		const filteredArticle = {
 			author: author,
 			comments: num_comments,
 			created: getRelativeTime(created_utc),
 			id: id,
+			// image: (preview?.images[0]?.source.url ?? (url_overridden_by_dest ?? "")).replace('https:','http:'),
 			image: url_overridden_by_dest?.replace('https:','http:'),
 			name: name,
 			permalink: permalink,
