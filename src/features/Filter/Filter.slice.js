@@ -13,7 +13,7 @@ data.forEach(item => {
 		}
 	})
 });
-console.log("Topics", topics)
+// console.log("Topics", topics)
 
 const filtersSlice = createSlice({
 	name: "filters",

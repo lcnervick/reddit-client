@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { isLoadingArticles, loadArticles, selectArticles, articlePageTitle } from './Articles.slice';
 
@@ -13,12 +12,10 @@ export default function Articles() {
 	const pageTitle = useSelector(articlePageTitle);
 
 	useEffect(() => {
-		console.log("Showing New Articles");
-		dispatch(loadArticles(''))
+		dispatch(loadArticles({query: '', mock: false}))
 	}, [dispatch]);
 	
 	if(isLoading) {
-		console.log("Loading...");
 		return (
 			<h1>Loading...</h1>
 		)

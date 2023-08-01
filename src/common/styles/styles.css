@@ -18,6 +18,25 @@ main {
 	padding-top: 60px;
 	background-color: var(--theme-light-accent);
 	color: var(--theme-dark-shade);
-	/* min-height: calc(100vh - 50px); */
-	/* min-height: 100vh; */
+	overflow-x:hidden;
+}
+
+
+/***  SPECIALS  ***/
+
+
+.fade-out {
+	overflow: hidden;
+	position: relative;
+}
+
+.fade-out::after {
+	content: '';
+	width:100%;
+	height: 100%;
+	position: absolute;
+	top:0;
+	left: 0;
+	z-index:0;
+	background-image: linear-gradient(180deg,transparent, var(--theme-light-shade));
 }

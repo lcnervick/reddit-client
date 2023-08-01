@@ -5,7 +5,7 @@ import data from '../../common/store/mock.popular.json';
 
 export const loadArticles = createAsyncThunk(
 	'articles/loadArticles',
-	async (query) => {
+	async ({query, mock}) => {
 		let url = 'http://www.reddit.com/';
 		let title = 'Popular Posts';
 		if(query) {
@@ -15,21 +15,23 @@ export const loadArticles = createAsyncThunk(
 			url += 'r/popular.json';
 		}
 
-
 		// MOCK RETURN
+		if(mock) {
+			console.log("JSON", data.data.children);
+			return {title: title, posts: parseRedditArticleResponse(data.data.children)};
+		}
 
-		// try {
-			// const response = await fetch(url, {cache:"no-cache"});
-			// if(response.ok) {
-				// const json = await response.json();
-				const json = data;
-				console.log("JSON", json);
+		try {
+			const response = await fetch(url, {cache:"no-cache"});
+			if(response.ok) {
+				const json = await response.json();
+				console.log("JSON", json.data.children);
 				return {title: title, posts: parseRedditArticleResponse(json.data.children)};
-			// }
-		// 	else throw new Error("Could Not Fetch Articles");
-		// } catch(err) {
-		// 	console.log("ERROR:", err);
-		// }
+			}
+			else throw new Error("Could Not Fetch Articles");
+		} catch(err) {
+			console.log("ERROR:", err);
+		}
 	}
 )
 
