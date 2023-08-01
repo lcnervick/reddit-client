@@ -6,7 +6,7 @@ import data from '../../common/store/mock.popular.json';
 export const loadArticles = createAsyncThunk(
 	'articles/loadArticles',
 	async ({query, mock}) => {
-		let url = 'http://www.reddit.com/';
+		let url = 'https://www.reddit.com/';
 		let title = 'Popular Posts';
 		if(query) {
 			url += `search.json?q=${encodeURI(query)}`;
