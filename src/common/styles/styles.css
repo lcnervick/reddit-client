@@ -18,6 +18,7 @@ main {
 	padding-top: 60px;
 	background-color: var(--theme-light-accent);
 	color: var(--theme-dark-shade);
+	min-height: calc(100vh - 50px);
 	overflow-x:hidden;
 }
 

@@ -1,0 +1,66 @@
+.article {
+	margin: 1rem;
+    padding: 0 1.5rem 2rem 1.5rem;
+    background-color: var(--theme-light-shade);
+    border-radius: 10px;
+}
+
+.article h2 {
+	margin: 0 auto 1rem auto;
+	font-size:1.5rem;
+	text-decoration: none;
+}
+
+.article figure {
+	display: block;
+    width: 90%;
+	margin: 0 auto;
+    position: relative;
+	background-color: white;
+	position: relative;
+}
+
+.articleImage {
+	width: 100%;
+}
+
+.articleInfo {
+	display: flex;
+	justify-content: space-between;
+	margin:0.5rem auto;
+}
+
+.articleInfo .articleAuthor span {
+	white-space: nowrap;
+}
+
+
+
+.articleFooter {
+	padding: 1rem 1rem 0 1rem;
+	display: flex;
+	justify-content: space-between;
+}
+.articleComments, .articleVotes {
+	display: flex;
+	gap: 0.5rem;
+    justify-content: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    padding: 0.5rem 1rem;
+    background-color: var(--theme-main);
+    color: var(--theme-light-shade);
+    border-radius: 5px;
+}
+.articleFooter svg {
+	height: 20px;
+}
+
+
+.goBackButton {
+	padding: 5px;
+}
+.goBackButton img {
+	height: 100%;
+	cursor: pointer;
+}

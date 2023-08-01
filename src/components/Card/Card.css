@@ -36,27 +36,27 @@
 	width: 100%;
 }
 
-.articleTextContainer {
+.articleCardTextContainer {
 	max-height: 120px;
 }
 
-.articleInfo {
+.articleCardInfo {
 	display: flex;
 	justify-content: space-between;
 }
 
-.articleInfo .articleAuthor span {
+.articleCardInfo .articleCardAuthor span {
 	white-space: nowrap;
 }
 
 
 
-.articleFooter {
+.articleCardFooter {
 	padding: 1rem 1rem 0 1rem;
 	display: flex;
 	justify-content: space-between;
 }
-.articleComments, .articleVotes {
+.articleCardComments, .articleCardVotes {
 	display: flex;
 	gap: 0.5rem;
     justify-content: center;
@@ -67,6 +67,6 @@
     color: var(--theme-light-shade);
     border-radius: 5px;
 }
-.articleFooter svg {
+.articleCardFooter svg {
 	height: 20px;
 }

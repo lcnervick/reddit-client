@@ -17,7 +17,7 @@ export const loadArticles = createAsyncThunk(
 
 		// MOCK RETURN
 		if(mock) {
-			console.log("JSON", data.data.children);
+			// console.log("JSON", data.data.children);
 			return {title: title, posts: parseRedditArticleResponse(data.data.children)};
 		}
 
@@ -25,7 +25,7 @@ export const loadArticles = createAsyncThunk(
 			const response = await fetch(url, {cache:"no-cache"});
 			if(response.ok) {
 				const json = await response.json();
-				console.log("JSON", json.data.children);
+				// console.log("JSON", json.data.children);
 				return {title: title, posts: parseRedditArticleResponse(json.data.children)};
 			}
 			else throw new Error("Could Not Fetch Articles");
