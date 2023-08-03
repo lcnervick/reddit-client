@@ -5,7 +5,7 @@ import { parseRedditCommentResponse } from "../../common/utilities/helperFuncs";
 import './Comments.css';
 
 export default function Comments({articleId}) {
-	const mock = true;
+	const mock = false;
 	const [comments, setComments] = useState([]);
 	useEffect(() => {
 		const getComments = async articleId => {
@@ -21,8 +21,8 @@ export default function Comments({articleId}) {
 			try {
 				const response = await fetch(url, {cache:"no-cache"});
 				if(response.ok) {
-					// console.log("Comments: ", json)
 					const json = await response.json();
+					console.log("Retrieved Comments: ", json[1])
 					setComments(parseRedditCommentResponse(json[1]));
 				}
 				else throw new Error("Could Not Fetch Comments");
@@ -41,20 +41,21 @@ export default function Comments({articleId}) {
 		<div className="commentsContainer">
 			{	comments.length
 				?
-				comments.map(comment => <Comment comment={comment} key={comment.id} />)
+				comments.map((comment, index) => <Comment comment={comment} key={comment.id} index={index} />)
 				:
-				<h2>Loading Comments...</h2>
+				<h3 style={{marginTop: '3rem'}}>Loading Comments...</h3>
 
 			}
 		</div>
 	)
 }
 
-export function Comment({comment, reply = false}) {
+export function Comment({comment, reply = false, index = 0}) {
 	const {author, created, id, permalink, post, replies, score} = comment;
+	if(!author || !post || post === '[removed]') return;
 	console.log("Comment: ", comment)
 	return (
-		<div className={"comment" + (reply ? " comment-reply" : '')}>
+		<div className={"comment" + (reply ? " comment-reply" : '') + (index === 0 && reply ? " reply-connector" : "")}>
 			<div className="comment-info">
 				<div>{author} &bull; {created}</div>
 				<div className="comment-score">
@@ -67,7 +68,7 @@ export function Comment({comment, reply = false}) {
 			{
 				replies.length
 				?
-				replies.map(reply => <Comment comment={reply} key={reply.id} reply={true} />)
+				replies.map((reply, thisIndex) => <Comment comment={reply} key={reply.id} reply={true} index={thisIndex} />)
 				:
 				''
 			}

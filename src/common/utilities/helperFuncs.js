@@ -62,6 +62,7 @@ export const parseRedditArticleResponse = (articles) => {
 export const parseRedditCommentResponse = (data, isReply = false) => {
 	const parsedComments = [];
 	// if(!isReply) console.log("Parsing Comments: ", data);
+	if(typeof data === 'undefined' || typeof data.data === 'undefined') return [];//console.log("Undefined Data", JSON.parse(JSON.stringify(data)));
 	data.data.children.forEach(comment => {
 		const {author, body, created, id, permalink, replies, ups, downs} = comment.data;
 		const filteredComment = {
