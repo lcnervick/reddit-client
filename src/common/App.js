@@ -5,6 +5,7 @@ import Footer from '../components/Footer/Footer';
 
 import './styles/styles.css';
 import './styles/animations.css';
+import './styles/custom-elements.css';
 import './utilities/helperFuncs';
 
 export default function App() {
