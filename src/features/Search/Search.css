@@ -1,0 +1,23 @@
+.search {
+	display:flex;
+	justify-content: center;
+	gap: 2%;
+	padding: 5px;
+	margin: 10px;
+	text-align:center;
+}
+
+.search input[type="text"] {
+	width: 70%;
+    font-size: 1.5rem;
+    height: 2.5rem;
+    padding: 0px 10px;
+    border-radius: 16px;
+    border: 2px solid var(--theme-dark-shade);
+	color: var(--theme-dark-shade);
+}
+.search input[type="text"]:focus {
+	outline: none !important;
+	border-color: var(--theme-dark-accent);
+}
+

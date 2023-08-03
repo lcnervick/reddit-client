@@ -19,42 +19,26 @@
 /***  BUTTONS  ***/
 button {
 	display: inline-block;
-    text-align: center;
-    margin: 1rem;
-    padding: 0.75em 2em;
+    padding: 0.0 1em;
+    font-size: 1.2rem;
     font-weight: bold;
-	text-transform: uppercase;
+    text-transform: uppercase;
     cursor: pointer;
-	position: relative;
-	transition: all 0.25s ease;
-}
-.light-button {
-	color: var(--theme-light);
-	border: 2px solid var(--theme-light);
-    background-color: transparent;
-}
-.light-button:active {
-	color: var(--theme-dark);
-	background-color: var(--theme-light);
+    position: relative;
+    transition: all 0.25s ease;
+    border-radius: 16px;
 }
 .dark-button {
-	color: var(--theme-dark);
-	border: 2px solid var(--theme-dark);
-    background-color: transparent;
+	color: var(--theme-light-shade);
+	border: 2px solid var(--theme-dark-shade);
+    background-color: var(--theme-main);
 }
 .dark-button:active {
-	color: var(--theme-light);
-	background-color: var(--theme-dark);
+	border-color: var(--theme-dark-accent);
 }
 
 .dark-button.active {
 	box-shadow: 1px 1px 3px 0px #ccc;
-}
-.light-button.active {
-	box-shadow: 1px 1px 3px 0px #666;
-}
-button.active:active {
-	box-shadow:none;
 }
 
 

@@ -52,10 +52,13 @@
 
 
 .articleCardFooter {
-	padding: 1rem 1rem 0 1rem;
-	display: flex;
-	justify-content: space-between;
+	padding: 0.3rem 0.5rem 0 0.5rem;
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--theme-dark-shade);
 }
+
 .articleCardComments, .articleCardVotes {
 	display: flex;
 	gap: 0.5rem;
@@ -63,10 +66,11 @@
     white-space: nowrap;
     vertical-align: middle;
     padding: 0.5rem 1rem;
-    background-color: var(--theme-main);
-    color: var(--theme-light-shade);
+    /* background-color: var(--theme-main); */
+    /* color: var(--theme-light-shade); */
     border-radius: 5px;
 }
+
 .articleCardFooter svg {
 	height: 20px;
 }
