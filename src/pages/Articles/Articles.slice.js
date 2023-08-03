@@ -31,6 +31,7 @@ export const loadArticles = createAsyncThunk(
 			else throw new Error("Could Not Fetch Articles");
 		} catch(err) {
 			console.log("ERROR:", err);
+			return {title: 'Error: No Posts Found', posts: []};
 		}
 	}
 )

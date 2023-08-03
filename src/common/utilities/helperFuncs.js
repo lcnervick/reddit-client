@@ -59,6 +59,26 @@ export const parseRedditArticleResponse = (articles) => {
 	return parsedArticles;
 }
 
+export const parseRedditCommentResponse = (data, isReply = false) => {
+	const parsedComments = [];
+	// if(!isReply) console.log("Parsing Comments: ", data);
+	data.data.children.forEach(comment => {
+		const {author, body, created, id, permalink, replies, ups, downs} = comment.data;
+		const filteredComment = {
+			author: author,
+			created: getRelativeTime(created),
+			id: id,
+			permalink: permalink,
+			post: body,
+			score: ups-downs,
+			replies: replies !== "" ? parseRedditCommentResponse(replies, true) : []
+		}
+		parsedComments.push(filteredComment);
+	});
+	if(!isReply) console.log("Parsed Comments: ", parsedComments);
+	return parsedComments;
+}
+
 export const normalizeListName = name => {
 	return name
 		// turn underscores into spaces

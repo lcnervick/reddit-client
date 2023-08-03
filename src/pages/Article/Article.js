@@ -1,8 +1,9 @@
 import React from 'react';
-import './Article.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectArticles } from '../Articles/Articles.slice';
+import Comments from '../../components/Comments/Comments';
+import './Article.css';
 
 export default function Article() {
 	const { articleId } = useParams();
@@ -35,6 +36,7 @@ export default function Article() {
 				</div>
 			</div>
 			
+			<Comments articleId={articleId} />
 
 		</article>
 	</>)
