@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { closeMenu, selectFilter, selectFilters, toggleMenu } from './Filter.slice';
 
 import filterImg from '../../common/images/filter.png';
+import closeFilterImg from '../../common/images/closeFilters.png';
 import './Filter.css';
 
 export default function Filter({ active }) {
@@ -14,8 +15,13 @@ export default function Filter({ active }) {
 		dispatch(selectFilter({ topic: target.value }));
 		dispatch(closeMenu());
 	};
+
+	const handleClick = () => {
+		dispatch(closeMenu());
+	}
 	
 	return (
+		<>
 		<div className={"filter-options" + (active ? " active" : "")}>
 			<div style={{ padding: '25px' }} />
 			<div className="filter-topics">
@@ -32,6 +38,8 @@ export default function Filter({ active }) {
 			}
 			</div>
 		</div>
+		{ active ? <div className="filter-shadowbox" onClick={handleClick} /> : ''}
+		</>
 	);
 }
 
@@ -47,7 +55,7 @@ export function FilterButton({ active }) {
 
 	return (
 		<button className={"filter-button" + (active ? " active" : "")} onClick={handleClick}>
-			<img src={filterImg} alt="filter button" />
+			<img src={active ? closeFilterImg : filterImg} alt="filter button" />
 		</button>
 	);
 }
