@@ -1,0 +1,35 @@
+.filter-options {
+	position: fixed;
+	width: 100%;
+	top:60px;
+	left: 0;
+	background-color: white;
+	z-index:2;
+	overflow-y: hidden;
+	height: auto;
+	max-height: 0px;
+	transition: max-height 0.5s ease-out,
+				overflow-y 0s linear 0.5s;
+}
+.filter-options.active {
+	max-height: calc(100vh - 120px);
+}
+
+.filter-options .filter-topics {
+	display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(auto, 250px));
+    justify-content: center;
+	margin: 2rem;
+	max-height: calc(100vh - 240px);
+	overflow-y:auto;
+}
+
+.filter-shadowbox {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(0,0,0,0.7);
+}

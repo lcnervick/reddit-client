@@ -9,7 +9,7 @@ data.forEach(item => {
 		topics[name] = {
 			name: normalizeListName(name),
 			link: item[name],
-			selected: false
+			selected: name === 'popular'
 		};
 	});
 });
@@ -20,26 +20,32 @@ const filtersSlice = createSlice({
 	initialState: {
 		filters: {
 			topics
-		}
+		},
+		menuState: { visible: false }
 	},
 	reducers: {
 		selectFilter: (state, action) => {
 			// payload = { topic: 'sports' }
-			state.filters.topics[action.payload.topic].selected = true;
+			Object.keys(state.filters.topics).forEach(filter => {
+				state.filters.topics[filter].selected = filter === action.payload.topic;
+			});
 		},
-		deSelectFilter: (state, action) => {
-			// payload = { topic: 'sports' }
-			state.filters.topics[action.payload.topic].selected = false;
+		toggleMenu: (state) => {
+			console.log("Here goes...", !state.menuState.visible);
+			state.menuState.visible = !state.menuState.visible;
 		},
-		toggleFilter: (state, action) => {
-			// payload = { topic: 'sports' }
-			state.filters.topics[action.payload.topic].selected = !state.filters.topics[action.payload.topic].selected;
+		openMenu: (state) => {
+			state.menuState.visible = true;
+		},
+		closeMenu: (state) => {
+			state.menuState.visible = false;
 		}
 	}
 });
 
 export const selectFilters = state => state.filters.filters;
+export const selectMenuState = state => state.filters.menuState;
 
-export const { selectFilter, deSelectFilter, toggleFilter } = filtersSlice.actions;
+export const { selectFilter, toggleMenu, openMenu, closeMenu } = filtersSlice.actions;
 
 export default filtersSlice.reducer;

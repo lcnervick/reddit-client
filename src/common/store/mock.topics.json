@@ -4,7 +4,6 @@
 	{ "gaming":"https://www.reddit.com/t/gaming/" },
 	{ "business_economics_and_finance":"https://www.reddit.com/t/business_economics_and_finance/" },
 	{ "crypto":"https://www.reddit.com/t/cryptocurrency/" },
-	{ "television":"https://www.reddit.com/t/television/" },
 	{ "celebrity":"https://www.reddit.com/t/celebrity/" },
 	{ "animals_and_pets":"https://www.reddit.com/t/animals_and_pets/" },
 	{ "anime":"https://www.reddit.com/t/anime/" },
@@ -30,5 +29,6 @@
 	{ "science":"https://www.reddit.com/t/science/" },
 	{ "tabletop_games":"https://www.reddit.com/t/tabletop_games/" },
 	{ "technology":"https://www.reddit.com/t/technology/" },
+	{ "television":"https://www.reddit.com/t/television/" },
 	{ "travel":"https://www.reddit.com/t/travel/" }
 ]

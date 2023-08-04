@@ -1,18 +1,23 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { parseRedditArticleResponse } from '../../common/utilities/helperFuncs';
+import { normalizeListName, parseRedditArticleResponse } from '../../common/utilities/helperFuncs';
 
 import data from '../../common/store/mock.popular.json';
 
 export const loadArticles = createAsyncThunk(
 	'articles/loadArticles',
-	async ({ query, mock }) => {
-		let url = 'https://www.reddit.com/';
-		let title = 'Popular Posts';
+	async ({ query, topic }) => {
+		const mock = false;
+		const topicName = normalizeListName(topic);
+
+		let url = `https://www.reddit.com/`;
+		let title = `${topicName} Posts`;
+
 		if (query) {
+			title = `${topicName} Search Results`;
 			url += `search.json?q=${encodeURI(query)}`;
-			title = `Search Results: ${query}`;
+			if (topic !== 'popular') url += `&t=${topic}`;
 		} else {
-			url += 'r/popular.json';
+			url += (topic === 'popular' ? 'r/popular.json' : `r/${topic}.json`);
 		}
 
 		// MOCK RETURN

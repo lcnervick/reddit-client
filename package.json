@@ -125,8 +125,14 @@
       "react/jsx-filename-extension": "off",
       "jsx-a11y/click-events-have-key-events": "off",
       "jsx-a11y/no-noninteractive-element-interactions": "off",
+      "jsx-a11y/label-has-for": "off",
 
       "no-unused-vars": "warn",
+      "no-empty": "warn",
+      "comma-spacing": "warn",
+      "semi": "warn",
+      "spaced-comment": "warn",
+
 
       "react/jsx-uses-react": "error",
       "react/jsx-uses-vars": "error"
