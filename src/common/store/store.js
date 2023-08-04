@@ -1,3 +1,4 @@
+// import React from "react";
 import { configureStore } from "@reduxjs/toolkit";
 import FilterSlice from "../../features/Filter/Filter.slice";
 import ArticlesSlice from "../../pages/Articles/Articles.slice";
@@ -8,5 +9,5 @@ export default configureStore({
 		filters: FilterSlice,
 		articles: ArticlesSlice,
 		search: SearchSlice
-	},
-  });
+	}
+});

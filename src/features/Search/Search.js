@@ -16,13 +16,13 @@ export default function Search() {
 	const handleSubmit = e => {
 		e.preventDefault();
 		console.log("Searching for: ", searchTerm);
-		dispatch(loadArticles({query: searchTerm, mock: false}));
-	}
+		dispatch(loadArticles({ query: searchTerm, mock: false }));
+	};
 	
-	return (<>
+	return (
 		<form className="search" onSubmit={handleSubmit}>
 			<input type="text" placeholder="Search" value={searchTerm} onChange={handleChange} />
 			<button className="dark-button">Go</button>
 		</form>
-	</>)
+	);
 }

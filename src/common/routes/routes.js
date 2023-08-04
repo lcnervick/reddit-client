@@ -17,8 +17,7 @@ export const router = createBrowserRouter(createRoutesFromElements(
 		<Route index element={<Articles />} />
 		<Route path={ROUTES.article} element={<Article />} />
 	</Route>
-))
+));
 
 
 export default ROUTES;
-  

@@ -10,12 +10,13 @@ import './utilities/helperFuncs';
 
 export default function App() {
 
-	return (<>
-		<Header />
-			<main>
-				<Outlet />
-			</main>
-		<Footer />
+	return (
+		<>
+			<Header />
+				<main>
+					<Outlet />
+				</main>
+			<Footer />
 		</>
 	);	  
 }

@@ -1,8 +1,10 @@
 .article {
-	margin: 1rem;
+	margin: 1rem auto;
     padding: 0 1.5rem 2rem 1.5rem;
     background-color: var(--theme-light-shade);
     border-radius: 10px;
+	width: 500px;
+	max-width: 90%;
 }
 
 .article h2 {
@@ -61,7 +63,7 @@
 
 
 .goBackButton {
-	padding: 5px;
+	padding: 5px !important;
 }
 .goBackButton img {
 	height: 100%;

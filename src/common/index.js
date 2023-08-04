@@ -1,12 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-// redux
 import { Provider } from "react-redux";
-import store from "./store/store";
-
-// router
 import { RouterProvider } from "react-router-dom";
+
+import store from "./store/store";
 import { router } from './routes/routes';
 
 ReactDOM.createRoot(document.getElementById("root")).render(

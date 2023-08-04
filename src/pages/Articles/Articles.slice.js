@@ -5,10 +5,10 @@ import data from '../../common/store/mock.popular.json';
 
 export const loadArticles = createAsyncThunk(
 	'articles/loadArticles',
-	async ({query, mock}) => {
+	async ({ query, mock }) => {
 		let url = 'https://www.reddit.com/';
 		let title = 'Popular Posts';
-		if(query) {
+		if (query) {
 			url += `search.json?q=${encodeURI(query)}`;
 			title = `Search Results: ${query}`;
 		} else {
@@ -16,25 +16,25 @@ export const loadArticles = createAsyncThunk(
 		}
 
 		// MOCK RETURN
-		if(mock) {
+		if (mock) {
 			// console.log("JSON", data.data.children);
-			return {title: title, posts: parseRedditArticleResponse(data.data.children)};
+			return { title, posts: parseRedditArticleResponse(data.data.children) };
 		}
 
 		try {
-			const response = await fetch(url, {cache:"no-cache"});
-			if(response.ok) {
+			const response = await fetch(url, { cache: "no-cache" });
+			if (response.ok) {
 				const json = await response.json();
 				// console.log("JSON", json.data.children);
-				return {title: title, posts: parseRedditArticleResponse(json.data.children)};
+				return { title, posts: parseRedditArticleResponse(json.data.children) };
 			}
-			else throw new Error("Could Not Fetch Articles");
-		} catch(err) {
+			throw new Error("Could Not Fetch Articles");
+		} catch (err) {
 			console.log("ERROR:", err);
-			return {title: 'Error: No Posts Found', posts: []};
+			return { title: 'Error: No Posts Found', posts: [] };
 		}
 	}
-)
+);
 
 const articlesSlice = createSlice({
 	name: 'articles',
@@ -63,14 +63,14 @@ const articlesSlice = createSlice({
 			})
 			.addCase(loadArticles.fulfilled, (state, action) => {
 				state.articles = action.payload.posts;
-				state.title = action.payload.title
+				state.title = action.payload.title;
 				state.isLoading = false;
 				state.hasError = false;
 			})
 			.addCase(loadArticles.rejected, (state) => {
 				state.isLoading = false;
 				state.hasError = true;
-			})
+			});
 	}
 });
 

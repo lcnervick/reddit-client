@@ -15,23 +15,25 @@ export default function Articles() {
 	const pageTitle = useSelector(articlePageTitle);
 
 	useEffect(() => {
-		dispatch(loadArticles({query: searchTerm, mock: false}))
+		dispatch(loadArticles({ query: searchTerm, mock: false }));
 	}, [dispatch]);
 	
-	if(isLoading) {
+	if (isLoading) {
 		return (
 			<h1>Loading...</h1>
-		)
+		);
 	}
 
-	console.log("Articles", articles)
+	console.log("Articles", articles);
 
-	return (<>
+	return (
+	<>
 		<Search />
-		<h1>{pageTitle}</h1>
+		<h1>{ pageTitle }</h1>
 		{
-			articles.map((article,index) => <Card key={article.id} index={index} article={article} />)
+			articles.map((article, index) => <Card key={article.id} index={index} article={article} />)
 		}
 		<div id="loadMore">&nbsp;</div>
-	</>)
+	</>
+	);
 }

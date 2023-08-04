@@ -10,8 +10,8 @@ data.forEach(item => {
 			name: normalizeListName(name),
 			link: item[name],
 			selected: false
-		}
-	})
+		};
+	});
 });
 // console.log("Topics", topics)
 
@@ -19,20 +19,20 @@ const filtersSlice = createSlice({
 	name: "filters",
 	initialState: {
 		filters: {
-			topics: topics
+			topics
 		}
 	},
 	reducers: {
 		selectFilter: (state, action) => {
-			// payload = {topic: 'sports'}
+			// payload = { topic: 'sports' }
 			state.filters.topics[action.payload.topic].selected = true;
 		},
 		deSelectFilter: (state, action) => {
-			// payload = {topic: 'sports'}
+			// payload = { topic: 'sports' }
 			state.filters.topics[action.payload.topic].selected = false;
 		},
 		toggleFilter: (state, action) => {
-			// payload = {topic: 'sports'}
+			// payload = { topic: 'sports' }
 			state.filters.topics[action.payload.topic].selected = !state.filters.topics[action.payload.topic].selected;
 		}
 	}

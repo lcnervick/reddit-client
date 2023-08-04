@@ -1,20 +1,20 @@
 import React from 'react';
-import filter from '../../common/images/filter.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectFilters } from './Filter.slice';
+import filter from '../../common/images/filter.png';
 
 export const toggleFilter = (openFilter = null) => {
-	if(openFilter === null) {
-
+	if (openFilter === null) {
+// comment
 	}
-}
+};
 
 export function FilterButton() {
 	return (
-		<div className="filter-button" onClick={toggleFilter}>
-			<img src={filter} />
-		</div>
-	)
+		<button className="filter-button" onClick={toggleFilter}>
+			<img src={filter} alt="filter button" />
+		</button>
+	);
 }
 
 export default function Filter() {
@@ -25,5 +25,5 @@ export default function Filter() {
 		<div className="filter-options">
 
 		</div>
-	)
+	);
 }

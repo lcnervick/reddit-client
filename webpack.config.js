@@ -1,4 +1,5 @@
 const path = require('path');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -7,6 +8,15 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
 	// tell webpack to include a separate source-map file (inline-source-map) includes source map at end of js files
 	devtool: 'source-map',
+	// disable the overlay for warnings
+	devServer: {
+		client: {
+			overlay: {
+				warnings: false,
+				errors: true,
+			},
+		}
+	},
 	// tell webpack where to start pulling info
 	entry: path.join(__dirname, "src", "common", "index.js"),
 	// tell webpack where to build to
@@ -45,6 +55,9 @@ module.exports = {
 		]
 	},
 	plugins: [
+		new ESLintPlugin({
+			failOnWarning: false,
+		}),
 		// tells webpack to clean up the old build files
 		new CleanWebpackPlugin(),
 		// tells webpack to copy files from the images and fonts directory to the dist folder
